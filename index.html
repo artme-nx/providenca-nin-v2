@@ -386,7 +386,7 @@ footer .logo{font-size:34px}
   var title=document.getElementById('heroTitle');
 
   if(!reduce && window.Lenis){
-    var lenis=new Lenis({duration:1.25,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true});
+    var lenis=new Lenis({lerp:0.2, wheelMultiplier:1, smoothWheel:true, syncTouch:false});
     function raf(t){lenis.raf(t);requestAnimationFrame(raf);}requestAnimationFrame(raf);
     if(window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);lenis.on('scroll',ScrollTrigger.update);}
     document.querySelectorAll('a[href^="#"]').forEach(function(a){
